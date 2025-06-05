@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uploadcare Uploader</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@uploadcare/file-uploader@1/web/uc-file-uploader.min.css" />
+  </head>
+  <body style="margin:0;padding:2rem;font-family:sans-serif;">
+    <uc-config
+      ctx-name="my-uploader"
+      source-list="local,camera,gdrive"
+      files-view-mode="grid"
+      pubkey="ec23960ba907a7aba0fa">
+    </uc-config>
+
+    <uc-file-uploader-regular
+      ctx-name="my-uploader"
+      class="uc-light uc-gray"
+      style="width:100%; height:500px;">
+    </uc-file-uploader-regular>
+
+    <script>
+      window.addEventListener("load", function () {
+        const script = document.createElement("script");
+        script.src = "https://cdn.jsdelivr.net/npm/@uploadcare/file-uploader@1/web/uc-file-uploader.min.js";
+        script.onload = () => {
+          if (window.UC) {
+            UC.defineComponents(window.UC);
+          }
+        };
+        document.body.appendChild(script);
+      });
+    </script>
+  </body>
+</html>
